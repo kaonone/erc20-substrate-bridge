@@ -42,6 +42,9 @@ export const DEFAULT_DECIMALS = 18;
 export const ETHEREUM_UNIT_NAME = 'DAI';
 export const SUBSTRATE_UNIT_NAME = 'sDAI';
 
+export const SUBGRAPH_HTTP_URL = 'https://api.thegraph.com/subgraphs/name/andor0/polkadai';
+export const SUBGRAPH_WS_URL = 'wss://api.thegraph.com/subgraphs/name/andor0/polkadai';
+
 export const SUBSTRATE_DEFAULT_ADDRESS_PREFIX = 42;
 export const SUBSTRATE_NODE_URL = 'wss://node1-polkadai.akropolis.io';
 export const SUBSTRATE_NODE_CUSTOM_TYPES: RegistryTypes = {
