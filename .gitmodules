@@ -1,0 +1,12 @@
+[submodule "eth-bridge-module"]
+	path = eth-bridge-module
+	url = https://github.com/akropolisio/eth-bridge-module
+[submodule "modules/eth-bridge-module"]
+	path = modules/eth-bridge-module
+	url = https://github.com/akropolisio/eth-bridge-module
+[submodule "modules/validator-bridge-module"]
+	path = modules/validator-bridge-module
+	url = https://github.com/akropolisio/validator-bridge-module
+[submodule "modules/substrate-bridge-module"]
+	path = modules/substrate-bridge-module
+	url = https://github.com/akropolisio/substrate-bridge-module
