@@ -1,6 +1,7 @@
 import BN from 'bn.js';
 import { O } from 'ts-toolbelt';
 import { GenericAccountId, u64 } from '@polkadot/types';
+import { Registry } from '@polkadot/types/types';
 
 // [Endpoint]: [Request, ConvertedRequestForApi, ApiResponse, ConvertedResponse]
 interface ISignatures {
@@ -36,8 +37,8 @@ export interface ICallMeta {
 export type ICallResult<E extends Endpoint> = [ConvertedResponse<E> | null, ICallMeta];
 
 export type ToRequestConverter<E extends Endpoint> = (
-  request: Request<E>,
-) => ConvertedRequestForApi<E>;
+  registry: Registry,
+) => (request: Request<E>) => ConvertedRequestForApi<E>;
 export type ToRequestConverters = {
   [E in EndpointWithRequest]: ToRequestConverter<E>;
 };

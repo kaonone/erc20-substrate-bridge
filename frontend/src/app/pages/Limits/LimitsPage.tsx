@@ -16,7 +16,7 @@ export function LimitsPage() {
   const lastValidatorsListMessage = useLastValidatorsListMessageQuery();
   const canVote = !!(
     account &&
-    lastValidatorsListMessage.data?.validatorsListMessages[0].newValidators.includes(account)
+    lastValidatorsListMessage.data?.validatorsListMessages[0]?.newValidators.includes(account)
   );
 
   return (

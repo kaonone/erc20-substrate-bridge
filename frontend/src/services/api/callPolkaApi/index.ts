@@ -41,7 +41,7 @@ function callPolkaApi<E extends Endpoint>(
 
       const toRequestConverter = toRequestConverters[endpoint as EndpointWithRequest] || null;
       const convertedArgs =
-        args && toRequestConverter ? toRequestConverter(args as Request<EndpointWithRequest>) : [];
+        args && toRequestConverter ? toRequestConverter(api.registry)(args as Request<EndpointWithRequest>) : [];
       const argsForRequest = Array.isArray(convertedArgs) ? convertedArgs : [convertedArgs];
 
       let response: Observable<Codec>;

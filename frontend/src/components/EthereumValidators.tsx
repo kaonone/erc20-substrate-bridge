@@ -5,13 +5,14 @@ import Button from '@material-ui/core/Button';
 import Grid from '@material-ui/core/Grid';
 
 import { ETH_NETWORK_CONFIG } from 'env';
-import { useSubscribable } from 'utils/hooks';
-import { useApi } from 'services/api';
+import { useLastValidatorsListMessageQuery } from 'generated/bridge-graphql';
 
 function EthereumValidators() {
-  const api = useApi();
+  const lastValidatorsListMessage = useLastValidatorsListMessageQuery();
+  const validators = lastValidatorsListMessage.data?.validatorsListMessages[0]?.newValidators || [];
 
-  const [validators, { error, loaded }] = useSubscribable(() => api.getEthValidators$(), [], []);
+  const loaded = !lastValidatorsListMessage.loading;
+  const error = lastValidatorsListMessage.error?.message;
 
   return (
     <div>
