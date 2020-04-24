@@ -19,6 +19,7 @@ interface ITokenConfig {
   decimals: number;
   contracts: {
     bridge: string;
+    bridgeTransfer: string;
     token: string;
   };
   subgraphUrls: {
@@ -41,6 +42,7 @@ const ethNetworkConfigs: Record<number, INetworkConfig> = {
         decimals: 18,
         contracts: {
           bridge: '0x0315CCA8220FE6510A41f91704716280Cd17905C',
+          bridgeTransfer: '0x2C9200538aEE51a5E629350270FFb4aeDaFeF0bb',
           token: '0x3F5B698332572Fb6188492F5D53ba75f81797F9d',
         },
         subgraphUrls: {
@@ -54,6 +56,7 @@ const ethNetworkConfigs: Record<number, INetworkConfig> = {
         decimals: 18,
         contracts: {
           bridge: '0x0315CCA8220FE6510A41f91704716280Cd17905C',
+          bridgeTransfer: '0x2C9200538aEE51a5E629350270FFb4aeDaFeF0bb',
           token: '0x3F5B698332572Fb6188492F5D53ba75f81797F9a',
         },
         subgraphUrls: {
@@ -67,6 +70,7 @@ const ethNetworkConfigs: Record<number, INetworkConfig> = {
         decimals: 18,
         contracts: {
           bridge: '0x0315CCA8220FE6510A41f91704716280Cd17905C',
+          bridgeTransfer: '0x2C9200538aEE51a5E629350270FFb4aeDaFeF0bb',
           token: '0x3F5B698332572Fb6188492F5D53ba75f81797F9b',
         },
         subgraphUrls: {
@@ -80,6 +84,7 @@ const ethNetworkConfigs: Record<number, INetworkConfig> = {
         decimals: 18,
         contracts: {
           bridge: '0x0315CCA8220FE6510A41f91704716280Cd17905C',
+          bridgeTransfer: '0x2C9200538aEE51a5E629350270FFb4aeDaFeF0bb',
           token: '0x3F5B698332572Fb6188492F5D53ba75f81797F9c',
         },
         subgraphUrls: {
@@ -102,6 +107,7 @@ const ethNetworkConfigs: Record<number, INetworkConfig> = {
         decimals: 18,
         contracts: {
           bridge: zeroAddress,
+          bridgeTransfer: zeroAddress,
           token: zeroAddress,
         },
         subgraphUrls: {

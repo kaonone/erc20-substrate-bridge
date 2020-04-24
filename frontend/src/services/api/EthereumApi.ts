@@ -95,7 +95,7 @@ export class EthereumApi {
 
   private async approveBridge(fromAddress: string, amount: string): Promise<void> {
     const allowance: string = await this.daiContract.methods
-      .allowance(fromAddress, TOKEN_CONFIG.contracts.bridge)
+      .allowance(fromAddress, TOKEN_CONFIG.contracts.bridgeTransfer)
       .call();
 
     if (new BN(amount).lte(new BN(allowance))) {
@@ -103,7 +103,7 @@ export class EthereumApi {
     }
 
     await this.daiContract.methods
-      .approve(TOKEN_CONFIG.contracts.bridge, amount)
+      .approve(TOKEN_CONFIG.contracts.bridgeTransfer, amount)
       .send({ from: fromAddress });
   }
 
