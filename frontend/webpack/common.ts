@@ -8,7 +8,7 @@ import CircularDependencyPlugin from 'circular-dependency-plugin';
 import FaviconsWebpackPlugin from 'favicons-webpack-plugin';
 
 const forGhPages = true;
-const pageTitle = 'Ethereum starter kit';
+const pageTitle = 'Ethereum DAI <--> AkropolisOS Bridge';
 
 function sortChunks(a: webpack.compilation.Chunk, b: webpack.compilation.Chunk): number {
   const order = ['app', 'vendors', 'runtime'];
