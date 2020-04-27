@@ -46,8 +46,8 @@ const ethNetworkConfigs: Record<number, INetworkConfig> = {
           token: '0x3F5B698332572Fb6188492F5D53ba75f81797F9d',
         },
         subgraphUrls: {
-          http: 'https://graph-node.akropolis.io/subgraphs/name/polkadai-bridge',
-          ws: 'wss://graph-node.akropolis.io/subgraphs/name/polkadai-bridge',
+          http: 'https://api.thegraph.com/subgraphs/name/alekspickle/bridge-dai',
+          ws: 'wss://api.thegraph.com/subgraphs/name/alekspickle/bridge-dai',
         },
       },
       '0x3F5B698332572Fb6188492F5D53ba75f81797F9a': {
