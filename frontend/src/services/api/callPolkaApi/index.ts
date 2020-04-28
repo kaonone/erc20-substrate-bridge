@@ -39,9 +39,9 @@ function callPolkaApi<E extends Endpoint>(
         throw new Error(`Unknown api.${area}, expected ${availableAreas.join(', ')}`);
       }
 
-      const toRequestConverter = toRequestConverters[endpoint as EndpointWithRequest] || null;
+      const toRequestConverter = toRequestConverters[endpoint as 'query.token.balance'] || null;
       const convertedArgs =
-        args && toRequestConverter ? toRequestConverter(api.registry)(args as Request<EndpointWithRequest>) : [];
+        args && toRequestConverter ? toRequestConverter(api.registry)(args as Request<'query.token.balance'>) : [];
       const argsForRequest = Array.isArray(convertedArgs) ? convertedArgs : [convertedArgs];
 
       let response: Observable<Codec>;

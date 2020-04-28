@@ -1,0 +1,31 @@
+[{
+  "anonymous": false,
+  "inputs": [{
+      "indexed": false,
+      "name": "messageID",
+      "type": "bytes32"
+    },
+    {
+      "indexed": false,
+      "name": "sender",
+      "type": "address"
+    },
+    {
+      "indexed": false,
+      "name": "recipient",
+      "type": "bytes32"
+    },
+    {
+      "indexed": false,
+      "name": "amount",
+      "type": "uint256"
+    },
+    {
+      "indexed": false,
+      "name": "token",
+      "type": "address"
+    }
+  ],
+  "name": "RelayMessage",
+  "type": "event"
+}]

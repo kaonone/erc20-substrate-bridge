@@ -1,6 +1,6 @@
 import BN from 'bn.js';
 import { O } from 'ts-toolbelt';
-import { GenericAccountId, u64, u32, Bytes, BTreeMap } from '@polkadot/types';
+import { GenericAccountId, u64, u32, Bytes } from '@polkadot/types';
 import { Registry } from '@polkadot/types/types';
 
 // [Endpoint]: [Request, ConvertedRequestForApi, ApiResponse, ConvertedResponse]

@@ -9,6 +9,7 @@ import { autobind } from 'core-decorators';
 
 import { TOKEN_CONFIG } from 'env';
 import bridgeAbi from 'abis/bridge.json';
+import transferAbi from 'abis/transfer.json';
 import erc20Abi from 'abis/erc20.json';
 import { getContractData$ } from 'utils/ethereum';
 import { Direction, Status } from 'generated/bridge-graphql';
@@ -23,7 +24,7 @@ export class EthereumApi {
   constructor(private web3: Web3, private transfersApi: TransfersApi) {
     this.daiContract = new this.web3.eth.Contract(erc20Abi, TOKEN_CONFIG.contracts.token);
     this.bridgeContract = new this.web3.eth.Contract(
-      bridgeAbi,
+      [...bridgeAbi, ...transferAbi],
       TOKEN_CONFIG.contracts.bridge,
     );
   }
