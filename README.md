@@ -7,7 +7,7 @@ Ethereum <-> Parity Substrate Blockchain bridge for self transfers of ERC20 repr
 1. Make sure you have Ethereum and Substrate extensions. Typical choices would be:
   <br>a. `Metamask` (or any other Ethereum extension) and switch it to `Kovan`
   <br>b. `polkadot{.js}`
-2. Go [here](https://polkadai-bridge.akropolis.io/)
+2. Go [here](https://chainbridge.akropolis.io/)
 3. Connect with both extensions(two pop-up windows should appear)
 4. You will see that your balances from extensions should appear on the page.
 5. Transfer some Kovan test DAI to our Substrate-based chain.
