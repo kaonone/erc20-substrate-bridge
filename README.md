@@ -16,3 +16,10 @@ Ethereum <-> Parity Substrate Blockchain bridge for self transfers of ERC20 repr
 It should be pretty obvious from this point.
 If you hit any problems, please feel free to file an issue!
 
+```
+    cd ./frontend
+    npm i
+    npm run codegen
+    npm run dev
+    
+   ```
