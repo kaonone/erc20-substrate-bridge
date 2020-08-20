@@ -7,8 +7,9 @@ import { decodeAddress } from '@polkadot/util-crypto';
 import { u8aToHex } from '@polkadot/util';
 import { autobind } from 'core-decorators';
 
-import { ETH_NETWORK_CONFIG } from 'env';
+import { TOKEN_CONFIG } from 'env';
 import bridgeAbi from 'abis/bridge.json';
+import transferAbi from 'abis/transfer.json';
 import erc20Abi from 'abis/erc20.json';
 import { getContractData$ } from 'utils/ethereum';
 import { Direction, Status } from 'generated/bridge-graphql';
@@ -21,10 +22,10 @@ export class EthereumApi {
   private bridgeContract: Contract;
 
   constructor(private web3: Web3, private transfersApi: TransfersApi) {
-    this.daiContract = new this.web3.eth.Contract(erc20Abi, ETH_NETWORK_CONFIG.contracts.dai);
+    this.daiContract = new this.web3.eth.Contract(erc20Abi, TOKEN_CONFIG.contracts.token);
     this.bridgeContract = new this.web3.eth.Contract(
-      bridgeAbi,
-      ETH_NETWORK_CONFIG.contracts.bridge,
+      [...bridgeAbi, ...transferAbi],
+      TOKEN_CONFIG.contracts.bridge,
     );
   }
 
@@ -32,22 +33,6 @@ export class EthereumApi {
   public async sendToSubstrate(fromAddress: string, to: string, amount: string): Promise<void> {
     await this.approveBridge(fromAddress, amount);
     await this.sendToBridge(fromAddress, to, amount);
-  }
-
-  @autobind
-  // eslint-disable-next-line class-methods-use-this
-  public getEthValidators$(): Observable<string[]> {
-    return from([
-      [
-        '6a8357ae0173737209af59152ee30a786dbade70',
-        '93880d6508e3ffee5a4376939d3322f2f11b56d1',
-        '9194ad793e72052992f9a1b3b8eaef5463300f87',
-      ],
-    ]);
-
-    /* return getContractData$<string[], string[]>(this._bridgeContract, 'validators', {
-      eventsForReload: [['ValidatorShipTransferred']],
-    }); */
   }
 
   @autobind
@@ -111,7 +96,7 @@ export class EthereumApi {
 
   private async approveBridge(fromAddress: string, amount: string): Promise<void> {
     const allowance: string = await this.daiContract.methods
-      .allowance(fromAddress, ETH_NETWORK_CONFIG.contracts.bridge)
+      .allowance(fromAddress, TOKEN_CONFIG.contracts.bridgeTransfer)
       .call();
 
     if (new BN(amount).lte(new BN(allowance))) {
@@ -119,7 +104,7 @@ export class EthereumApi {
     }
 
     await this.daiContract.methods
-      .approve(ETH_NETWORK_CONFIG.contracts.bridge, amount)
+      .approve(TOKEN_CONFIG.contracts.bridgeTransfer, amount)
       .send({ from: fromAddress });
   }
 

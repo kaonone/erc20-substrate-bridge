@@ -39,10 +39,6 @@ export class Api {
     return this.transfersApi.getTransfers$;
   }
 
-  get getEthValidators$() {
-    return this.ethereumApi.getEthValidators$;
-  }
-
   get getEthTokenBalance$() {
     return this.ethereumApi.getTokenBalance$;
   }

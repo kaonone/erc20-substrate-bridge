@@ -11,7 +11,6 @@ interface IProps {
   title: React.ReactNode;
   actions?: React.ReactNode[];
   backRoutePath?: string;
-  additionalHeaderContent?: React.ReactNode;
   showBalances?: boolean;
   showEra?: boolean;
   hidePageNavigation?: boolean;
@@ -19,12 +18,11 @@ interface IProps {
 }
 
 function BaseLayout(props: IProps) {
-  const { children, backRoutePath, title, additionalHeaderContent, hidePageNavigation } = props;
+  const { children, backRoutePath, title, hidePageNavigation } = props;
 
   const headerProps: GetProps<typeof Header> = {
     backRoutePath,
     title,
-    additionalContent: additionalHeaderContent,
   };
 
   const classes = useStyles();

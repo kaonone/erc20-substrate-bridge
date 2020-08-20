@@ -11,6 +11,7 @@ import { Direction, Status } from 'generated/bridge-graphql';
 
 import { callPolkaApi } from './callPolkaApi';
 import { TransfersApi } from './TransfersApi';
+import { TOKEN_CONFIG } from 'env';
 
 export class SubstrateApi {
   constructor(private apiRx: Observable<ApiRx>, private transfersApi: TransfersApi) {}
@@ -94,6 +95,8 @@ export class SubstrateApi {
 
   @autobind
   public getTokenBalance$(address: string): Observable<BN> {
-    return callPolkaApi(this.apiRx, 'query.token.balance', address);
+    return callPolkaApi(this.apiRx, 'query.token.tokenIds', TOKEN_CONFIG.contracts.token).pipe(
+      switchMap(tokenId => callPolkaApi(this.apiRx, 'query.token.balance', [tokenId, address])),
+    );
   }
 }
